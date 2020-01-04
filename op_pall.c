@@ -7,6 +7,12 @@
  */
 void op_pall(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
+	stack_t *new = (*stack)->next;
+
+	while (new)
+	{
+		printf("%d\n", new->n);
+		new = new->next;
+	}
 	(void)line_number;
 }
