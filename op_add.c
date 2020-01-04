@@ -7,6 +7,14 @@
  */
 void op_add(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
+	stack_t *new;
+
+	if (!*stack || !(*stack)->next)
+		new = *stack;
+	*stack = (*stack)->next;
+
+	(*stack)->n += new->n;
+	free(new);
+	(*stack)->prev = NULL;
 	(void)line_number;
 }
