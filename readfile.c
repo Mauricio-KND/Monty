@@ -17,7 +17,7 @@ void readfile(FILE *file)
 		{
 			printf("%s\n", op_code);
 			if (strcmp(op_code, "push") == 0)
-				push(&stack, op_arg);
+				op_push(&op_stack, 0);
 		}
 		if (op_arg)
 			printf("%s\n", op_arg);

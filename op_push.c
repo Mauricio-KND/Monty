@@ -7,26 +7,23 @@
  */
 void op_push(stack_t **stack, unsigned int line_number)
 {
-	char *new_element;
 	stack_t *element;
 
-	if (new_element == NULL)
-	{
-		printf("L%d: usage: push integer\n", l);
-		free(line);
-		return (-1);
-	};
-
-	if (_strcmp(flag, "stack") == 0)
-		element = add_node(atoi(new_element));
-	else
-		element = add_node_end(h, atoi(new_element));
-
-	free(line);
+	element = malloc(sizeof(stack_t));
 	if (element == NULL)
 	{
-		printf("Error: malloc failed");
-		return (-1);
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
 	}
-	return (0);
+	element->next = NULL;
+	element->prev = NULL;
+	if (!(*stack))
+		*stack = element;
+	else
+	{
+		element->next = *stack;
+		(*stack)->prev = element;
+		*stack = element;
+	}
+	(void)line_number;
 }

@@ -1,3 +1,4 @@
+#include "monty.h"
 /**
  *op_swap - Swaps the top two elements of the stack.
  *@stack: Pointer to the top of the stack.
@@ -6,6 +7,6 @@
  */
 void op_swap(stack_t **stack, unsigned int line_number)
 {
-	void(stack);
-	void(line_number);
+	(void)stack;
+	(void)line_number;
 }

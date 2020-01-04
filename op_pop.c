@@ -7,13 +7,21 @@
  */
 void op_pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *node;
-
-	if (node == NULL)
+	if (*stack)
 	{
-		printf("L%d: can't pop an empty %s\n", l, flag);
-		free_stack(*stack);
+		if ((*stack)->next)
+			*stack = (*stack)->next;
+		if (*stack)
+		{
+			if ((*stack)->prev)
+				free((*stack)->prev);
+			else
+				free(*stack);
+		}
+	}
+	else
+	{
+		printf("L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	free(node);
 }
