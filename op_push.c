@@ -8,13 +8,29 @@
 void op_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *element;
-
+	char *value = opt.element;
+	int transform;
+	if (value == NULL)
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else if (is_number(value))
+	{
+		transform = atoi(value);
+	}
+	else
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	element = malloc(sizeof(stack_t));
 	if (element == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
+	element->n = transform;
 	element->next = NULL;
 	element->prev = NULL;
 	if (!(*stack))
@@ -26,4 +42,23 @@ void op_push(stack_t **stack, unsigned int line_number)
 		*stack = element;
 	}
 	(void)line_number;
+}
+
+/**
+ *is_number - Verify if it is a number.
+ *@arg: Argument to verify.
+ *Return: An integer.
+ */
+int is_number (char* arg)
+{
+	int count = 0;
+
+	while(arg[count] != '\0')
+	{
+		if((arg[count] >= '0' && arg[count] <= '9') || (arg[count] == '-' && count == 0))
+			count++;
+		else
+			return(0);
+	}
+	return(1);
 }
