@@ -7,6 +7,13 @@
  */
 void op_pint(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
-	(void)line_number;
+	stack_t *new = *stack;
+	(void) line_number;
+
+	if (!new)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", new->n);
 }

@@ -39,6 +39,19 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct config - Allocate configuration's elements.
+ * @element: Element to push.
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO Holberton project
+ */
+typedef struct config
+{
+        char *element;
+} config_t;
+config_t opt;
+
 void readfile(FILE *file);
 void (*op_handler(char *op_code))(stack_t **, unsigned int);
 void op_push(stack_t **stack, unsigned int line_number);
