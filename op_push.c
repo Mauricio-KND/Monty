@@ -1,16 +1,16 @@
 #include "monty.h"
 /**
  *op_push - Pushes an element to the stack.
- *@stack: Double Pointer to first node.
+ *@stack: Double Pointer to first element.
  *@line_number: Line number in the file.
  *Return: Void. Nothing.
  */
 void op_push(stack_t **stack, unsigned int line_number)
 {
-	char *start_n;
-	stack_t *node;
+	char *new_element;
+	stack_t *element;
 
-	if (start_n == NULL)
+	if (new_element == NULL)
 	{
 		printf("L%d: usage: push integer\n", l);
 		free(line);
@@ -18,12 +18,12 @@ void op_push(stack_t **stack, unsigned int line_number)
 	};
 
 	if (_strcmp(flag, "stack") == 0)
-		node = add_node(h, atoi(start_n));
+		element = add_node(atoi(new_element));
 	else
-		node = add_node_end(h, atoi(start_n));
+		element = add_node_end(h, atoi(new_element));
 
 	free(line);
-	if (node == NULL)
+	if (element == NULL)
 	{
 		printf("Error: malloc failed");
 		return (-1);

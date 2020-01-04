@@ -15,7 +15,8 @@ void (*op_handler(char *op_code))(stack_t **, unsigned int)
 		{NULL, NULL}
 	};
 	int i = 0;
-	for (op_instruction[i].opcode != NULL; i++)
+
+	for (; op_instruction[i].opcode != NULL; i++)
 		if(strcmp(op_instruction[i].opcode, op_code) == 0)
 		{
 			return(NULL);
