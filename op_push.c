@@ -47,16 +47,16 @@ void op_push(stack_t **stack, unsigned int line_number)
 
 /**
  *is_number - Verify if it is a number.
- *@arg: Argument to verify.
+ *@ar: Argument to verify.
  *Return: An integer.
  */
-int is_number(char *arg)
+int is_number(char *ar)
 {
 	int c = 0;
 
-	while (arg[c] != '\0')
+	while (ar[c] != '\0')
 	{
-		if ((arg[c] >= '0' && arg[c] <= '9') || (arg[c] == '-' && c == 0))
+		if ((ar[c] >= '0' && ar[c] <= '9') || (ar[c] == '-' && c == 0))
 			c++;
 		else
 			return (0);
