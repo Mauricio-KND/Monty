@@ -10,6 +10,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 	stack_t *element;
 	char *value = opt.element;
 	int transform;
+
 	if (value == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
@@ -49,16 +50,16 @@ void op_push(stack_t **stack, unsigned int line_number)
  *@arg: Argument to verify.
  *Return: An integer.
  */
-int is_number (char* arg)
+int is_number(char *arg)
 {
-	int count = 0;
+	int c = 0;
 
-	while(arg[count] != '\0')
+	while (arg[c] != '\0')
 	{
-		if((arg[count] >= '0' && arg[count] <= '9') || (arg[count] == '-' && count == 0))
-			count++;
+		if ((arg[c] >= '0' && arg[c] <= '9') || (arg[c] == '-' && c == 0))
+			c++;
 		else
-			return(0);
+			return (0);
 	}
-	return(1);
+	return (1);
 }

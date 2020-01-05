@@ -7,17 +7,14 @@
  */
 void op_pop(stack_t **stack, unsigned int line_number)
 {
-	if (*stack)
+	stack_t *alloc = *stack;
+
+	if (alloc)
 	{
-		if ((*stack)->next)
-			*stack = (*stack)->next;
-		if (*stack)
-		{
-			if ((*stack)->prev)
-				free((*stack)->prev);
-			else
-				free(*stack);
-		}
+		if ((alloc)->next)
+			(alloc)->next->prev = NULL;
+		*stack = alloc->next;
+		free(alloc);
 	}
 	else
 	{
