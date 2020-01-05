@@ -7,7 +7,7 @@
  */
 void op_pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new = (*stack)->next;
+	stack_t *new = (*stack);
 
 	while (new)
 	{

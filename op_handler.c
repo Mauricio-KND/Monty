@@ -7,6 +7,7 @@
 void (*op_handler(char *op_code))(stack_t **, unsigned int)
 {
 	instruction_t op_instruction[] = {
+		{"push", op_push},
 		{"pall", op_pall},
 		{"pint", op_pint},
 		{"pop", op_pop},
