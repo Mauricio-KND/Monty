@@ -9,7 +9,7 @@ void op_div(stack_t **stack, unsigned int line_number)
 {
 	if (*stack && (*stack)->next)
 	{
-		(*stack)->next->n = (*stack)->n / (*stack)->next->n;
+		(*stack)->next->n = (*stack)->next->n / (*stack)->n;
 		op_pop(stack, line_number);
 	}
 	else

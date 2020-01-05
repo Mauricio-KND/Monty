@@ -4,7 +4,7 @@
  *@file: File to read.
  *Return: Void. Nothing.
  */
-void readfile()
+void readfile(void)
 {
 	stack_t *op_stack = NULL;
 	size_t buf_size = 1024;

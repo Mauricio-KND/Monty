@@ -8,6 +8,7 @@
 int main(int argc, char *argv[])
 {
 	struct stat st;
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
 			free_files(NULL);
 			exit(EXIT_FAILURE);
 		}
-		readfile(opt.file);
+		readfile();
 	}
 	else
 	{

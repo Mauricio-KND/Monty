@@ -54,7 +54,7 @@ typedef struct config
 } config_t;
 config_t opt;
 
-void readfile();
+void readfile(void);
 void (*op_handler(char *op_code))(stack_t **, unsigned int);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **stack, unsigned int line_number);
