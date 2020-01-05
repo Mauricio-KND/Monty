@@ -49,6 +49,7 @@ typedef struct instruction_s
 typedef struct config
 {
 	char *element;
+	char *buffer;
 } config_t;
 config_t opt;
 

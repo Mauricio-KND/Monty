@@ -7,16 +7,16 @@
 void readfile(FILE *file)
 {
 	stack_t *op_stack = NULL;
-	char *buffer = malloc(1024);
 	size_t buf_size = 1024;
 	char *op_code, *op_arg;
 	unsigned int line = 0;
 	void (*f)(stack_t**, unsigned int);
 
-	while (getline(&buffer, &buf_size, file) != -1)
+	opt.buffer = malloc(1024);
+	while (getline(&(opt.buffer), &buf_size, file) != -1)
 	{
 		line++;
-		op_code = strtok(buffer, "\n\t\r ");
+		op_code = strtok(opt.buffer, "\n\t\r ");
 		opt.element = strtok(NULL, "\n\t\r ");
 		if (op_code)
 		{
@@ -25,6 +25,7 @@ void readfile(FILE *file)
 				f(&op_stack, line);
 		}
 	}
+	free(opt.buffer);
 	fclose(file);
 	(void)op_code;
 	(void)op_arg;
