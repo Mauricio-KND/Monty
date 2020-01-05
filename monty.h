@@ -62,5 +62,6 @@ void op_swap(stack_t **stack, unsigned int line_number);
 void op_add(stack_t **stack, unsigned int line_number);
 void op_nop(stack_t **stack, unsigned int line_number);
 int is_number(char *arg);
+void free_files(stack_t **stack);
 
 #endif /* MONTY_H */
