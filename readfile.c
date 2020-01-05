@@ -1,6 +1,8 @@
 #include "monty.h"
 /**
- *
+ *readfile - reads a specific file.
+ *@file: File to read.
+ *Return: Void. Nothing.
  */
 void readfile(FILE *file)
 {
