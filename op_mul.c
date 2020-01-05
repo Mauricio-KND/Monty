@@ -15,6 +15,7 @@ void op_mul(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		free_files(stack);
 		exit(EXIT_FAILURE);
 	}
 }

@@ -15,6 +15,7 @@ void op_sub(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		free_files(stack);
 		exit(EXIT_FAILURE);
 	}
 }

@@ -14,6 +14,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 	if (value == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		free_files(stack);
 		exit(EXIT_FAILURE);
 	}
 	else if (is_number(value))
@@ -23,12 +24,14 @@ void op_push(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		free_files(stack);
 		exit(EXIT_FAILURE);
 	}
 	element = malloc(sizeof(stack_t));
 	if (element == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_files(stack);
 		exit(EXIT_FAILURE);
 	}
 	element->n = transform;
