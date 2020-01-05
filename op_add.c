@@ -7,14 +7,14 @@
  */
 void op_add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new;
-
-	if (!*stack || !(*stack)->next)
-		new = *stack;
-	*stack = (*stack)->next;
-
-	(*stack)->n += new->n;
-	free(new);
-	(*stack)->prev = NULL;
-	(void)line_number;
+	if (*stack && (*stack)->next)
+	{
+		(*stack)->next->n = (*stack)->n + (*stack)->next->n;
+		op_pop(stack, line_number);
+	}
+	else
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 }
