@@ -4,7 +4,7 @@
  *@file: File to read.
  *Return: Void. Nothing.
  */
-void readfile(FILE *file)
+void readfile()
 {
 	stack_t *op_stack = NULL;
 	size_t buf_size = 1024;
@@ -13,7 +13,7 @@ void readfile(FILE *file)
 	void (*f)(stack_t**, unsigned int);
 
 	opt.buffer = malloc(1024);
-	while (getline(&(opt.buffer), &buf_size, file) != -1)
+	while (getline(&(opt.buffer), &buf_size, opt.file) != -1)
 	{
 		line++;
 		op_code = strtok(opt.buffer, "\n\t\r ");
@@ -26,7 +26,7 @@ void readfile(FILE *file)
 		}
 	}
 	free(opt.buffer);
-	fclose(file);
+	fclose(opt.file);
 	(void)op_code;
 	(void)op_arg;
 }

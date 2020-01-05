@@ -7,7 +7,6 @@
  */
 int main(int argc, char *argv[])
 {
-	FILE *file;
 
 	if (argc != 2)
 	{
@@ -15,13 +14,13 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	file = fopen(argv[1], "r");
-	if (!file)
+	opt.file = fopen(argv[1], "r");
+	if (!opt.file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
-	readfile(file);
+	readfile(opt.file);
 	return (EXIT_SUCCESS);
 }

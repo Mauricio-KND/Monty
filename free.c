@@ -14,4 +14,6 @@ void free_files(stack_t **stack)
 		free(*stack);
 		*stack = content;
 	}
+	free(opt.buffer);
+	fclose(opt.file);
 }
