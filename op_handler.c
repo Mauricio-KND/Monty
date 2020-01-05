@@ -15,6 +15,8 @@ void (*op_handler(char *op_code))(stack_t **, unsigned int)
 		{"add", op_add},
 		{"nop", op_nop},
 		{"sub", op_sub},
+		{"div", op_div},
+		{"mul", op_mul},
 		{NULL, NULL}
 	};
 	int i = 0;
