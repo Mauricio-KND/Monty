@@ -6,14 +6,20 @@
  */
 void free_files(stack_t **stack)
 {
-	stack_t *content = *stack;
+	stack_t *content;
 
-	while (*stack)
+	if (stack)
 	{
-		content = (*stack)->next;
-		free(*stack);
-		*stack = content;
+		content = *stack;
+		while (*stack)
+		{
+			content = (*stack)->next;
+			free(*stack);
+			*stack = content;
+		}
 	}
-	free(opt.buffer);
-	fclose(opt.file);
+	if (opt.buffer)
+		free(opt.buffer);
+	if (opt.file)
+		fclose(opt.file);
 }
