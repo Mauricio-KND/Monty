@@ -20,14 +20,12 @@ void op_push(stack_t **stack, unsigned int line_number)
 	}
 	counter = strlen(value);
 	for (i = 0; i < counter; i++)
-	{
 		if (value[0] != '-' && !isdigit(value[i]))
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			free_files(stack);
 			exit(EXIT_FAILURE);
 		}
-	}
 	transform = atoi(value);
 	element = malloc(sizeof(stack_t));
 	if (element == NULL)
