@@ -10,6 +10,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 	stack_t *element;
 	char *value = opt.element;
 	int transform;
+	size_t counter = 0, i = 0;
 
 	if (value == NULL)
 	{
@@ -17,16 +18,17 @@ void op_push(stack_t **stack, unsigned int line_number)
 		free_files(stack);
 		exit(EXIT_FAILURE);
 	}
-	else if (is_number(value))
+	counter = strlen(value);
+	for (i = 0; i < counter; i++)
 	{
-		transform = atoi(value);
+		if (value[0] != '-' && !isdigit(value[i]))
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			free_files(stack);
+			exit(EXIT_FAILURE);
+		}
 	}
-	else
-	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		free_files(stack);
-		exit(EXIT_FAILURE);
-	}
+	transform = atoi(value);
 	element = malloc(sizeof(stack_t));
 	if (element == NULL)
 	{
