@@ -31,8 +31,7 @@ void readfile(void)
 			}
 		}
 	}
-	free(opt.buffer);
-	fclose(opt.file);
+	free_files(&op_stack);
 	(void)op_code;
 	(void)op_arg;
 }
