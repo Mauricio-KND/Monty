@@ -18,6 +18,7 @@ void (*op_handler(char *op_code))(stack_t **, unsigned int)
 		{"div", op_div},
 		{"mul", op_mul},
 		{"mod", op_mod},
+		{"pstr", op_pstr},
 		{NULL, NULL}
 	};
 	int i = 0;
