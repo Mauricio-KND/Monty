@@ -23,6 +23,12 @@ void readfile(void)
 			f = op_handler(op_code);
 			if (f)
 				f(&op_stack, line);
+			else
+			{
+				fprintf(stderr, "L%d: unknown instruction %s\n",
+				line, op_code);
+				exit(EXIT_FAILURE);
+			}
 		}
 	}
 	free(opt.buffer);
