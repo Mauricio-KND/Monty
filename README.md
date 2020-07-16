@@ -17,7 +17,7 @@ Files containing Monty byte codes usually have the .m extension. Most of the ind
 * Where is the line number where the instruction appears.
 * Line numbers always start at 1
 * The Monty Program runs the bytecodes line by line and stop if either:
-- it executed properly every line of the file
-- it finds an error in the file
-- an error occured
+it executed properly every line of the file
+it finds an error in the file
+an error occured
 * If can’t malloc anymore, print the error message Error: malloc failed, followed by a new line, and exit with status EXIT_FAILURE.
